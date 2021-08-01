@@ -4,9 +4,12 @@ import { FiPlusSquare } from 'react-icons/fi';
 import { Container } from './styles';
 import Logo from '../../assets/logo.svg';
 
-class Header extends Component {
-  render() {
-    const { openModal } = this.props;
+type Header = {
+  openModal: () => void;
+}
+
+const Header = (props: Header) => {
+    const { openModal } = props;
 
     return (
       <Container>
@@ -28,7 +31,6 @@ class Header extends Component {
         </header>
       </Container>
     )
-  }
 };
 
 export default Header;
