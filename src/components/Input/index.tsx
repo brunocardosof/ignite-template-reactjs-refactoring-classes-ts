@@ -10,12 +10,13 @@ import { useField } from '@unform/core';
 import { Container } from './styles';
 import { ReactNode } from 'react';
 
-type Input = {
+type InputProps = {
   name: string;
-  icon: any;
+  placeholder: string;
+  icon?: any;
 }
 
-const Input = ({ name, icon: Icon, ...rest }: Input) => {
+const Input = ({ name, icon: Icon, placeholder, ...rest }: InputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [isFocused, setIsFocused] = useState(false);
@@ -49,6 +50,7 @@ const Input = ({ name, icon: Icon, ...rest }: Input) => {
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
         defaultValue={defaultValue}
+        placeholder={placeholder}
         ref={inputRef}
         {...rest}
       />
